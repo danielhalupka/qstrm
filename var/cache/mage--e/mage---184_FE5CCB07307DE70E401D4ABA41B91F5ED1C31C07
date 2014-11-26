@@ -1,0 +1,45 @@
+<link type="text/css" rel="stylesheet" href="http://quantumstreams.net/skin/frontend/rwd/default/css/bootstrap.css" />
+<link type="text/css" rel="stylesheet" href="http://quantumstreams.net/skin/frontend/rwd/default/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="http://quantumstreams.net/skin/frontend/rwd/default/css/bootstrap-theme.css" />
+<link type="text/css" rel="stylesheet" href="http://quantumstreams.net/skin/frontend/rwd/default/css/bootstrap-theme.min.css" />
+
+<div class="qheader">
+<div class="container" style="-webkit-box-shadow: 2px 8px 44px 10px rgba(138,138,138,0.74);
+-moz-box-shadow: 2px 8px 44px 10px rgba(138,138,138,0.74);
+box-shadow: 2px 8px 44px 10px rgba(138,138,138,0.74);">
+<div class="qlogo">
+<img src="http://quantumstreams.net/media/logo.png" width="400px" height="60px" style="margin:15px;margin-left:5px"/>
+</div>
+<div class="qheader-container">
+</div>
+<div class="span1" style="background-color:#66ad6f;"></div>
+</div>
+</div>
+<div class="qheaderbar">
+</div>
+
+
+
+
+<!-- Over z-index variant
+
+<div style="z-index=1;
+			position:fixed;
+			top:310px;
+			left:550px;
+			height:30px;
+			width:60px;
+			background-color:blue;
+			">
+</div>
+<div style="z-index=2;
+			position:fixed;
+			top:300px;
+			left:500px;
+			height:40px;
+			width:60px;
+			background-color:red;
+			">
+</div>
+
+ end -->
