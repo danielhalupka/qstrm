@@ -1,48 +1,10 @@
 <?php
 
-/**
- * BelVG LLC.
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
- *
- * **************************************
- *         MAGENTO EDITION USAGE NOTICE *
- * ***************************************
- * This package designed for Magento COMMUNITY edition
- * BelVG does not guarantee correct work of this extension
- * on any other Magento edition except Magento COMMUNITY edition.
- * BelVG does not provide extension support in case of
- * incorrect edition usage.
- * **************************************
- *         DISCLAIMER   *
- * ***************************************
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future.
- * ****************************************************
- * @category    Belvg
- * @package     Belvg_All
- * @copyright   Copyright (c) 2010 - 2014 BelVG LLC. (http://www.belvg.com)
- * @license     http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
- */
-class Belvg_All_Block_Extensions extends Mage_Adminhtml_Block_System_Config_Form_Fieldset
-{
+class Belvg_All_Block_Extensions extends Mage_Adminhtml_Block_System_Config_Form_Fieldset {
 
-    /**
-     * @var Mage_Adminhtml_Block_System_Config_Form_Field
-     */
     protected $_fieldRenderer;
+    protected $_values;
 
-    /**
-     * Render installed belvg modules
-     *
-     * @param Varien_Data_Form_Element_Abstract $element
-     * @return string
-     */
     public function render(Varien_Data_Form_Element_Abstract $element)
     {
         $html = $this->_getHeaderHtml($element);
@@ -59,52 +21,71 @@ class Belvg_All_Block_Extensions extends Mage_Adminhtml_Block_System_Config_Form
                 continue;
             }
 
-            $html .= $this->_getFieldHtml($element, $moduleName);
+            $html.= $this->_getFieldHtml($element, $moduleName);
         }
-
         $html .= $this->_getFooterHtml($element);
 
         return $html;
     }
+   
 
-    /**
-     * Get renderer class
-     *
-     * @return Mage_Adminhtml_Block_System_Config_Form_Field
-     */
     protected function _getFieldRenderer()
     {
         if (empty($this->_fieldRenderer)) {
             $this->_fieldRenderer = Mage::getBlockSingleton('adminhtml/system_config_form_field');
         }
-
         return $this->_fieldRenderer;
     }
 
-    /**
-     * Fromat list of BelVG extensions
-     *
-     * @param type $fieldset
-     * @param string $moduleCode
-     * @return string
-     */
     protected function _getFieldHtml($fieldset, $moduleCode)
     {
         $currentVer = Mage::getConfig()->getModuleConfig($moduleCode)->version;
-        if (!$currentVer) {
+        if (!$currentVer)
             return '';
+
+        $moduleName = substr($moduleCode, strpos($moduleCode, '_') + 1); // in case we have no data in the RSS
+
+        $allExtensions = unserialize(Mage::app()->loadCache('belvgall_extensions'));
+
+        $status = '<a  target="_blank"><img src="' . $this->getSkinUrl('images/belvgall/ok.gif') . '" title="' . $this->__("Installed") . '"/></a>';
+
+        if ($allExtensions && isset($allExtensions[$moduleCode])) {
+            $ext = $allExtensions[$moduleCode];
+
+            $url = $ext['url'];
+            $name = $ext['name'];
+            $lastVer = $ext['version'];
+
+            $moduleName = '<a href="' . $url . '" target="_blank" title="' . $name . '">' . $name . "</a>";
+
+            if ($this->_convertVersion($currentVer) < $this->_convertVersion($lastVer)) {
+                $status = '<a href="' . $url . '" target="_blank"><img src="' . $this->getSkinUrl('images/belvgall/update.gif') . '" alt="' . $this->__("Update available") . '" title="' . $this->__("Update available") . '"/></a>';
+            }
         }
 
-        $moduleName = substr($moduleCode, strpos($moduleCode, '_') + 1);
-        $module = __('<img src="%s" title="%s"></a> %s', $this->getSkinUrl('images/success_msg_icon.gif'), $this->__('installed'), $moduleName);
+        //TODO check if module output disabled in future
+
+        $moduleName = $status . ' ' . $moduleName;
 
         $field = $fieldset->addField($moduleCode, 'label', array(
                         'name' => 'dummy',
-                        'label' => $module,
+                        'label' => $moduleName,
                         'value' => $currentVer,
                 ))->setRenderer($this->_getFieldRenderer());
 
         return $field->toHtml();
+    }
+
+    protected function _convertVersion($v)
+    {
+        $digits = @explode(".", $v);
+        $version = 0;
+        if (is_array($digits)) {
+            foreach ($digits as $k => $v) {
+                $version += ($v * pow(10, max(0, (3 - $k))));
+            }
+        }
+        return $version;
     }
 
 }

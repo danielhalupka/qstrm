@@ -28,10 +28,10 @@
 <config>
     <global>
         <install>
-            <date><![CDATA[Thu, 21 Aug 2014 23:15:08 +0000]]></date>
+            <date><![CDATA[Thu, 06 Nov 2014 15:22:05 +0000]]></date>
         </install>
         <crypt>
-            <key><![CDATA[7e5b469b7cb24c73ca610dc9872b842f]]></key>
+            <key><![CDATA[5df6718e143c8c8a91442903f47a25ed]]></key>
         </crypt>
         <disable_local_modules>false</disable_local_modules>
         <resources>
@@ -43,7 +43,7 @@
                     <host><![CDATA[localhost]]></host>
                     <username><![CDATA[root]]></username>
                     <password><![CDATA[]]></password>
-                    <dbname><![CDATA[quantumstreams]]></dbname>
+                    <dbname><![CDATA[mag]]></dbname>
                     <initStatements><![CDATA[SET NAMES utf8]]></initStatements>
                     <model><![CDATA[mysql4]]></model>
                     <type><![CDATA[pdo_mysql]]></type>
@@ -58,7 +58,7 @@
         <routers>
             <adminhtml>
                 <args>
-                    <frontName><![CDATA[admin]]></frontName>
+                    <frontName><![CDATA[nasaflasticka]]></frontName>
                 </args>
             </adminhtml>
         </routers>

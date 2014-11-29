@@ -1,42 +1,29 @@
 <?php
-
-/**
- * BelVG LLC.
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
- *
- * **************************************
- *         MAGENTO EDITION USAGE NOTICE *
- * ***************************************
- * This package designed for Magento COMMUNITY edition
- * BelVG does not guarantee correct work of this extension
- * on any other Magento edition except Magento COMMUNITY edition.
- * BelVG does not provide extension support in case of
- * incorrect edition usage.
- * **************************************
- *         DISCLAIMER   *
- * ***************************************
- * Do not edit or add to this file if you wish to upgrade Magento to newer
- * versions in the future.
- * ****************************************************
- * @category    Belvg
- * @package     Belvg_All
- * @copyright   Copyright (c) 2010 - 2014 BelVG LLC. (http://www.belvg.com)
- * @license     http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
- */
 $this->startSetup();
 
-$helper = Mage::helper('belvgall')
-        ->saveConfig(Belvg_All_Helper_Config::XML_PATH_INSTALLED, time())
-        ->saveConfig(Belvg_All_Helper_Config::XML_PATH_FREQUENCY, 3600*6)
-        ->saveConfig(Belvg_All_Helper_Config::XML_PATH_LAST_UPDATE, 0)
-        ->saveConfig(Belvg_All_Helper_Config::XML_PATH_INTERESTS, 'INSTALLED_UPDATE,UPDATE_RELEASE,NEW_RELEASE,PROMO,INFO');
+Mage::getModel('core/config_data')
+        ->setScope('default')
+        ->setPath('belvgall/feed/installed')
+        ->setValue(time())
+        ->save(); 
 
+Mage::getModel('core/config_data')
+        ->setScope('default')
+        ->setPath('belvgall/feed/check_frequency')
+        ->setValue(3600*12)
+        ->save(); 
+
+Mage::getModel('core/config_data')
+        ->setScope('default')
+        ->setPath('belvgall/feed/last_update')
+        ->setValue(0)
+        ->save(); 
+
+Mage::getModel('core/config_data')
+        ->setScope('default')
+        ->setPath('belvgall/feed/interests')
+        ->setValue('INSTALLED_UPDATE,UPDATE_RELEASE,NEW_RELEASE,PROMO,INFO')
+        ->save();
 
 $feedData = array();
 $feedData[] = array(

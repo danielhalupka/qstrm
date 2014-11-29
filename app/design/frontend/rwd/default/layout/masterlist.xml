@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+        <masterlist_index_index>
+            <update handle="customer_account" />
+        	<reference name="my.account.wrapper">
+                <block type="masterlist/list" name="masterlist" template="masterlist/masterlist.phtml" />
+            </reference>
+        </masterlist_index_index>
+        
+            <customer_account>
+        <reference name="customer_account_navigation" >
+            <action method="addLink" translate="label"><name>is_traveling</name><path>masterlist/</path><label>My Traveler Lists</label></action>
+        </reference>
+    </customer_account>
+ </layout>

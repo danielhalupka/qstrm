@@ -110,41 +110,6 @@ a:hover {
   outline: 0;
 }
 
-.qfooter{
-	background-color:#4aa355;
-	height:80px;
-	min-width:100%;
-	position:fixed;
-	bottom:0;
-}
-
-.qfooterhigh{
-		background-color:#bac7bb;
-	height:40px;
-	min-width:100%;
-	position:fixed;
-	bottom:120px;
-}
-
-.qfootermid{
-		background-color:#66ad6f;
-	height:40px;
-	min-width:100%;
-	position:fixed;
-	bottom:80px;
-}
-
-.qheaderbar{
-	width:100%;
-	background-color:#67b670;
-	height:20px;
-}
-
-.qheader .container{
-	border:5px #67b670;
-	
-}
-
 /* ==========================================================================
    Typography
    ========================================================================== */

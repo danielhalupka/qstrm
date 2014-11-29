@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<youtubeitem_adminhtml_youtubeitem_index>
+		<reference name="content">
+			<block type="youtubeitem/adminhtml_youtubeitem" name="youtubeitem" />
+		</reference>
+	</youtubeitem_adminhtml_youtubeitem_index>
+</layout>

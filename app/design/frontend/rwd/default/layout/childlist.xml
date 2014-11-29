@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+        <childlist_index_index>
+            <update handle="customer_account" />
+        	<reference name="my.account.wrapper">
+                <block type="childlist/list" name="childlist" template="childlist/childlist.phtml" />
+            </reference>
+        </childlist_index_index>
+        
+        <childlist_index_item>
+            <update handle="customer_account" />
+        	<reference name="my.account.wrapper">
+                <block type="childlist/item" name="childitem" template="childlist/item/item.phtml" />
+            </reference>
+        </childlist_index_item>
+        
+            <customer_account>
+        <reference name="customer_account_navigation" >
+            <action method="addLink" translate="label"><name>non_traveling</name><path>childlist/</path><label>My Non Traveler Lists</label></action>
+        </reference>
+    </customer_account>
+ </layout>

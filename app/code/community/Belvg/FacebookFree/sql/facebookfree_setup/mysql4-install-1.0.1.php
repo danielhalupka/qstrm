@@ -1,29 +1,52 @@
 <?php
 
+/**
+ * BelVG LLC.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ *
+  /***************************************
+ *         MAGENTO EDITION USAGE NOTICE *
+ * *************************************** */
+/* This package designed for Magento COMMUNITY edition
+ * BelVG does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * BelVG does not provide extension support in case of
+ * incorrect edition usage.
+  /***************************************
+ *         DISCLAIMER   *
+ * *************************************** */
+/* Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future.
+ * ****************************************************
+ * @category   Belvg
+ * @package    Belvg_FacebookAll
+ * @copyright  Copyright (c) 2010 - 2011 BelVG LLC. (http://www.belvg.com)
+ * @license    http://store.belvg.com/BelVG-LICENSE-COMMUNITY.txt
+ */
+
 $installer = $this;
 
 $installer->startSetup();
-$table = $this->getTable('facebookfree/facebookfree');
 
 $installer->run("
-
-CREATE TABLE IF NOT EXISTS `{$table}` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `customer_id` int(10) unsigned NOT NULL,
-  `store_id` smallint(5) unsigned NOT NULL,
-  `website_id` smallint(5) unsigned NOT NULL,
+CREATE TABLE IF NOT EXISTS {$this->getTable('belvg_facebook_customer')} (
+  `customer_id` int(10) NOT NULL,
   `fb_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `customer_id` (`customer_id`),
-  UNIQUE KEY `store_id` (`store_id`,`website_id`,`fb_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  UNIQUE KEY `FB_CUSTOMER` (`customer_id`,`fb_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-ALTER TABLE `{$table}`
-  ADD CONSTRAINT `belvg_facebook_customer_ibfk_2` FOREIGN KEY (`store_id`) REFERENCES `{$this->getTable('core_store')}` (`store_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  ADD CONSTRAINT `belvg_facebook_customer_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `{$this->getTable('customer_entity')}` (`entity_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `{$this->getTable('belvg_facebook_customer')}`
+CHANGE `customer_id` `customer_id` INT( 10 ) UNSIGNED NOT NULL;
 
+ALTER TABLE `{$this->getTable('belvg_facebook_customer')}`
+ADD FOREIGN KEY ( `customer_id` ) REFERENCES `{$this->getTable('customer_entity')}` (
+`entity_id`
+) ON DELETE CASCADE ;
 ");
-
-
-
 $installer->endSetup();

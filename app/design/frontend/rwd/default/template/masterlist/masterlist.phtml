@@ -1,0 +1,11 @@
+<?php $masterlists = $this->getLists();?>
+<link rel="stylesheet" type="text/css" href="http://planandboard.elysee.us/js/kallyas/bootstrap/css/bootstrap.min.css" />
+<h3>My Traveler Lists</h3>
+<div class="masterlistGrid">
+
+<?php foreach ($masterlists as $masterlist){?>
+
+<div class="col-md-4 col-sm-4 col-xs-4"><?php echo $masterlist->getTitle();?></div>
+
+<?php }?>
+</div>

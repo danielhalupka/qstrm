@@ -228,10 +228,11 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
      */
     public function logoutAction()
     {
+    	if(Mage::getSingleton('customer/session')->isLoggedIn()){
         $this->_getSession()->logout()
             ->renewSession();
-
-        $this->_redirect('*/*/logoutSuccess');
+    	}
+        $this->_redirect('http://www.quantumstreams.net/index.php/flashgames');
     }
 
     /**

@@ -35,10 +35,7 @@
         <Belvg_FacebookFree>
             <active>true</active>
             <codePool>community</codePool>
-            <version>2.0.1</version>
-            <depends>
-                <Mage_Customer />
-            </depends>
+            <version>1.0.7</version>
         </Belvg_FacebookFree>
     </modules>
 </config>

@@ -35,7 +35,7 @@ class Belvg_FacebookFree_Model_System_Config_Source_Layout
     {
         return array(
             //array('value'=>'', 'label'=>''),
-            array('value'=>'standard', 'label'=>Mage::helper('facebookfree')->__('Standard')),
+            array('value'=>'standart', 'label'=>Mage::helper('facebookfree')->__('Standart')),
             array('value'=>'button_count', 'label'=>Mage::helper('facebookfree')->__('Button Count')),
             array('value'=>'box_count', 'label'=>Mage::helper('facebookfree')->__('Box Count')),
         );

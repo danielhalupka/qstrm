@@ -1,0 +1,33 @@
+<?php $childitems = $this->getListItems();?>
+<link rel="stylesheet" type="text/css" href="http://planandboard.elysee.us/js/kallyas/bootstrap/css/bootstrap.min.css" />
+<h3 style="margin:0">List: <?php echo $this->getListName()?></h3>
+<button style="margin:10px" onclick="addNewList();">Add New Product</button><input id="new_product_name" placeholder="New list name"></input>
+<div class="childlistGrid">
+
+<?php foreach ($childitems as $childitem){ $childproduct = $childitem->getProduct();?>
+
+<p class="childItem" style="text-align:left;margin:10px;padding:5px;"><a href="<?php echo $childproduct->getProductUrl()?>"><?php echo $childproduct->getName();?></a><a href="<?php echo $childitem->getDeleteUrl($this->getList()->getId())?>" class="deleteItemButton" style="color:#666 !important;float:right;padding:5px;margin: -5px;">DELETE</a></p>
+
+<?php }?>
+</div>
+
+<script>
+
+function addNewList(){
+		if(document.getElementById("new_list_name").value!=""){
+			window.location = '<?php echo Mage::getBaseUrl().'childlist/add/list/?title='?>'+document.getElementById("new_list_name").value;
+		}else{
+			alert('Enter new list name');
+			}
+}
+
+</script>
+
+<style>
+.childItem:hover{
+	background-color:#3399cc;
+}
+
+.deleteItemButton:hover{
+background:rgba(255,255,255,0.4);
+</style>
