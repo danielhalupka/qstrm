@@ -68,7 +68,7 @@
 
 				<div style="padding: 0;" class="col-xs-12 col-sm-12 col-md-12">
 					<object
-						style="position: relative; min-height: 100%; max-width: 100%;"
+						style="position: relative;display:none; min-height: 100%; max-width: 100%;"
 						id="content-game"
 						data=""
 						height="100%" width="100%">
@@ -155,6 +155,7 @@ function resize(){
 }
 
 function skip(){
+	$('#content-game').show();
 	$('#firstScreen').hide();
 	$('#ovoJe').css("opacity","1");
 	$('#ovoJe2').css("opacity","1");
