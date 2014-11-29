@@ -30,10 +30,10 @@ foreach ($result as $key => $flash_link){
 				->setCategoryvidId(1)
 				->setStatus ( 1 )
 				->save ();
-				return;
+				
 			} catch ( Exception $e ) {
-				echo $e;
-				return;
+				
+				
 			}
 		break;
 	}
