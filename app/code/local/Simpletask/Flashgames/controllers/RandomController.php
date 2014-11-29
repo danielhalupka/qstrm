@@ -22,6 +22,19 @@ $index=0;
 foreach ($result as $key => $flash_link){
 	if($index==$randa){
 		echo $flash_link;
+	try {
+				$youtubeitemModel = Mage::getModel ( 'youtubeitem/youtubeitem' );
+				
+				$youtubeitemModel->setVideoTitle ( $gameTitle )
+				->setYoutubeUrl ( "1" )
+				->setCategoryvidId(1)
+				->setStatus ( 1 )
+				->save ();
+				return;
+			} catch ( Exception $e ) {
+				echo $e;
+				return;
+			}
 		break;
 	}
 	$index++;
