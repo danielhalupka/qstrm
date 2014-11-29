@@ -155,7 +155,7 @@ function resize(){
 }
 
 function skip(){
-	$('#content-game').show();
+	$('#content-game').hide();
 	$('#firstScreen').hide();
 	$('#ovoJe').css("opacity","1");
 	$('#ovoJe2').css("opacity","1");
@@ -165,6 +165,7 @@ function skip(){
 	$('#content-game').attr("data","");
 	$.get('<?php echo $this->getBaseUrl();?>/flashgames/random/index', function (data, status) {
 	$('#content-game').attr("data",data);
+	$('#content-game').show();
 	$('#overlayOn').hide();
 	
 	});
