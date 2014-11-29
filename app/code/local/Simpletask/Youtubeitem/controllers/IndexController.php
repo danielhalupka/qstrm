@@ -13,9 +13,7 @@ class Simpletask_Youtubeitem_IndexController extends Mage_Core_Controller_Front_
 	
 	public function cistiAction(){
 		$itemCollection = Mage::getModel('youtubeitem/youtubeitem')->getCollection();
-		foreach($itemCollection as $item) {
-		
-		}
+		echo count($itemCollection);
 	}
 	
 	public function countflaAction(){
