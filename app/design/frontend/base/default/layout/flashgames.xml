@@ -2,7 +2,7 @@
 <layout version="0.1.0">
         <flashgames_index_index>
 <reference name="root">
-        <action method="setTemplate"><template>page/1column.phtml</template></action>
+        <action method="setTemplate"><template>page/empty.phtml</template></action>
     </reference>
     <reference name="content">
                 <block type="flashgames/list" name="flashgames" template="flashgames/flashgames.phtml" />
