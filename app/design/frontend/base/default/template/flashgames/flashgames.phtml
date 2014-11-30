@@ -41,8 +41,13 @@
 					href="<?php echo $this->getBaseUrl();?>flashgames/mystreams">My
 					Streams |</a>
 			</div>
-<?php }else{?>
-<img style="margin:10px;float:right;" height="40px" src="http://www.mygrocerybag.in/media/facebook-con.png"/>
+			<?php }else{?>
+<div id="fb-root"></div>
+<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()):?>
+
+	<a href="#" onclick="return fblogin();" class="fb_button_ps"><img style="margin:10px;float:right;" height="40px" src="http://www.mygrocerybag.in/media/facebook-con.png" alt="<?php echo $this->__('Connect with Facebook')?>"/></a>
+<?php endif?>
+
 <?php }?>
 		</div>
 		<div style="padding: 0" class="col-xs-12 col-sm-12 col-md-12">

@@ -5,10 +5,12 @@
         <action method="setTemplate"><template>page/empty.phtml</template></action>
     </reference>
     <reference name="content">
-                <block type="flashgames/list" name="flashgames" template="flashgames/flashgames.phtml" />
+                <block type="flashgames/list" name="flashgames" template="flashgames/flashgames.phtml" >
+                
+                </block>
+
 </reference>
-<remove name="header"></remove>
-<remove name="footer"></remove>
+
         </flashgames_index_index>
         
         <flashgames_index_item>
