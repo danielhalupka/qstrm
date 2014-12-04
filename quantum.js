@@ -43,7 +43,8 @@ function restreamStart() {
 }
 function firstC() {
 	$("#firstScreen").attr("height", $(window).height() * .8 + 15 + "px");
-	$("#firstScreen").attr("width", $(window).width() * .7 - 30 + "px")
+	$("#firstScreen").attr("width", $(window).width() * .7 - 30 + "px");
+	resize()
 }
 function resize() {
 	$("#content-game").attr("height", $(window).height() * .8 + 10 + "px");
@@ -69,11 +70,11 @@ function skip() {
 				$("#content-game").show();
 				$("#overlayOn").hide()
 			});
-	resize()
+	resize();
 }
 function first() {
 	$("#firstScreen").hide();
-	skip()
+	skip();
 }
 $(document)
 		.ready(
