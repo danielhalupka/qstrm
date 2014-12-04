@@ -6879,13 +6879,13 @@ button.close {
 	float: right;
 	font-size: 1.3em;
 	font-weight: bold;
-	color: blackfloat: right;
+	color: black !important;
+	float: right;
 	padding: 15px;
-	color: white !important;
 }
 
 .linkOnTop:hover{
-	background:rgba(255,255,255,0.5);
-	color: black !important;
+	background:rgba(0,0,0,0.5);
+	color: white !important;
 }
 /*# sourceMappingURL=bootstrap.css.map */

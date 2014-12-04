@@ -35,15 +35,16 @@ function restream() {
 											$("#streamList").html(e)
 										})
 					});
-	$("#streamList").css("height", $(window).height() * .8 + 15 + "px")
+	$("#streamList").css("height", $(window).height() * .8 + 15 + "px");
+	$("#inputName").val("");
 }
 function restreamStart() {
 	$("#inputBox").show();
 	$("#streamList").css("height", $(window).height() * .8 + 15 - 60 + "px")
 }
 function firstC() {
-	$("#firstScreen").attr("height", $(window).height() * .8 + 15 + "px");
-	$("#firstScreen").attr("width", $(window).width() * .7 - 30 + "px");
+	$("#firstScreen").css("height", $(window).height() * .8 + 10 + "px");
+	$("#firstScreen").css("width", $(window).width() * .7 - 30 + "px");
 	resize()
 }
 function resize() {
@@ -58,6 +59,8 @@ function resize() {
 function skip() {
 	$("#content-game").hide();
 	$("#firstScreen").hide();
+	$("#overlayHelp").hide();
+	
 	$("#ovoJe").css("opacity", "1");
 	$("#ovoJe2").css("opacity", "1");
 	$("#overlayOn").show();
@@ -87,7 +90,7 @@ $(document)
 									function(e, t) {
 										$("#streamList").html(e)
 									});
-					first()
+					
 				});
 $(window).resize(function() {
 	resize()

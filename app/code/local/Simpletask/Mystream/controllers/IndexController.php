@@ -8,7 +8,7 @@ class Simpletask_Mystream_IndexController extends Mage_Core_Controller_Front_Act
 	
 	public function getstreamsAction(){
 		header ( "Access-Control-Allow-Origin: *" );
-		echo '<h3 style="font-size: 1.1em;font-weight: bold;padding-left:5px">My Saved Streams:</h3>';
+		;
 
 		$customer = Mage::getSingleton('customer/session');
 		$customerId = $customer->getId();
