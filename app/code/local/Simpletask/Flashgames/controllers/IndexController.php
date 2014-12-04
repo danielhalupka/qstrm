@@ -6,6 +6,12 @@ class Simpletask_Flashgames_IndexController extends Mage_Core_Controller_Front_A
             $this->renderLayout();
 	}
 	
+	public function helpAction(){
+		$this->loadLayout();
+		$this->renderLayout();
+	}
+	
+	
 	public function itemAction(){
 		$this->loadLayout();
 		$this->renderLayout();

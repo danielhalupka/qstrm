@@ -48,7 +48,7 @@
 				src="http://www.mygrocerybag.in/media/facebook-con.png"
 				alt="<?php echo $this->__('Connect with Facebook')?>" /></a>
 				<h5 style="line-height:40px;font-weight:bold;color:#4d7fc7;margin: 10px; float: right;">To be able to save a game link -></h5>
-				<h4 style="line-height:40px;font-weight:bold;color:white;margin: 10px; float: left;cursor:pointer;border:2px solid white;padding:5px;"><a style="color:white;" onclick="help()" href="#">First time here? Click here for help.</a></h4>
+				<h4 style="line-height:40px;font-weight:bold;color:white;margin: 10px; float: left;cursor:pointer;border:2px solid white;padding:5px;"><a style="color:white;" href="<?php echo $this->getBaseUrl();?>/flashgames/help">First time here? Click here for help.</a></h4>
 <?php endif?>
 
 <?php }?>
@@ -99,10 +99,16 @@
 						style="display: none; width: 100%; min-height: 100%; max-width: 100%; height: 100%; background: url('http://www.quantumstreams.net/atom_animated.gif') no-repeat scroll center center rgba(0, 0, 0, 0.7); z-index: 9999;"></div>
 					<div id="firstScreen"
 						style="display: block; padding: 25px; width: 100%; text-align: center; height: 100%; background: no-repeat scroll center center rgba(0, 0, 0, 0.7); z-index: 9999;">
-						<h2 style="padding: 10px;">Welcome to QuantumStreams.net</h2>
-						<h3>where things are never the same twice.</h3>
-						<h4>Randomize Your World</h4>
-						<p>If you don't like random game that was given to you, just click "Next random game", if you like it and you want to save it click "Save to list", because it's very small possibility that you will play this game ever again. To be able to save game into list, please make an account by clicking on "Connect with Facebook". You will get list from left side where your saved games are. QuantumStreams is not saving any data except your email and Name to our server.</p>
+						<h1 style="padding: 10px;">Welcome to QuantumStreams.net</h1>
+						<h2>where things are never the same twice.</h2>
+						<h3>Randomize Your World</h3>
+						<h1 style="color: blue;">
+							<a onclick="first();" style="cursor: pointer">Click to play :)</a>
+						</h1>
+
+						<p style="color: red;">THIS IS BETA VERSION - PROFILES ARE NOT
+							IMPLEMENTED YET (just click and play)</p>
+
 						<h6>Have fun and enjoy new and entertaining stream links.</h6>
 						<h7 style="float:right;"> Best regards, QuantumStreams.Net </h7>
 					</div>
@@ -147,11 +153,7 @@
 
 	<script>
 
-function help(){
-	$('#content-game').hide();
-	$('#overlayOn').hide();
-	$('#firstScreen').show();
-}
+
 </script>
 
 
