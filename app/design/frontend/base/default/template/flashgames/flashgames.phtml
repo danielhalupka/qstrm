@@ -20,10 +20,13 @@
 		<div class="col-xs-12 col-sm-12 col-md-12"
 			style="background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.8); border: 1px #999 solid; color: white;">
 
-			<div class="" style="float: left;">
+			<div class="" style="float: left;display:inline-flex">
 				<a href="<?php echo $this->getBaseUrl();?>"><img
 					src="http://www.quantumstreams.net/logo_q.png"
 					style="height: 60px; padding: 10px;" /></a>
+					<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()):?>
+				<h4 style="line-height:40px;font-weight:bold;color:white;margin: 10px; float: left;cursor:pointer;border:2px solid white;padding:5px;"><a style="color:white;" onclick="help()" href="#">First time here? Click here for help.</a></h4>
+<?php endif?>
 			</div>
 
 			<?php if(Mage::getSingleton('customer/session')->isLoggedIn()){?>
@@ -48,7 +51,7 @@
 				src="http://www.mygrocerybag.in/media/facebook-con.png"
 				alt="<?php echo $this->__('Connect with Facebook')?>" /></a>
 				<h5 style="line-height:40px;font-weight:bold;color:#4d7fc7;margin: 10px; float: right;">To be able to save a game link -></h5>
-				<h4 style="line-height:40px;font-weight:bold;color:white;margin: 10px; float: left;cursor:pointer;border:2px solid white;padding:5px;"><a style="color:white;" onclick="help()" href="#">First time here? Click here for help.</a></h4>
+			
 <?php endif?>
 
 <?php }?>
