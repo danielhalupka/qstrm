@@ -232,7 +232,7 @@ class Mage_Customer_AccountController extends Mage_Core_Controller_Front_Action
         $this->_getSession()->logout()
             ->renewSession();
     	}
-        $this->_redirect('http://www.quantumstreams.net/index.php/flashgames');
+        Mage::app()->getResponse()->setRedirect(Mage::getBaseUrl())->sendResponse();
     }
 
     /**
