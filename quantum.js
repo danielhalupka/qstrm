@@ -43,7 +43,7 @@ function restreamStart() {
 	$("#streamList").css("height", $(window).height() * .8 + 15 - 60 + "px")
 }
 function firstC() {
-	$("#firstScreen").css("height", $(window).height() * .8 + 10 + "px");
+	$("#firstScreen").css("height", $(window).height() * .6 + 10 + "px");
 	$("#firstScreen").css("width", $(window).width() * .7 - 30 + "px");
 	resize()
 }
