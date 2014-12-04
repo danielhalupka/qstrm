@@ -111,17 +111,17 @@
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12"
-					style="padding: 5px; position: fixed; bottom: 0; right: 0;">
+					style="padding: 5px; position: relative; bottom: 0; right: 0;">
 					<?php if(Mage::getSingleton('customer/session')->isLoggedIn()){?>
 					<div class="col-xs-6 col-sm-6 col-md-6"
-						style="height: 100%; padding: 0;">
+						style="height: 100%;">
 						<button onclick="restreamStart();"
 							style="width: 100%; height: 100%; background: rgba(0, 170, 255, 0.8); border: 1px #999 solid; color: white; height: 100%; padding-right: 5px; line-height: 25px; font-size: 1.2em; font-weight: bold;">Save
 							game to list</button>
 					</div>
 					<?php }else{?>
 					<div class="col-xs-6 col-sm-6 col-md-6"
-						style="height: 100%; padding: 0;"><button onclick="restreamAlert();"
+						style="height: 100%;"><button onclick="restreamAlert();"
 							style="width: 100%; height: 100%; background: rgba(0, 170, 255, 0.8); border: 1px #999 solid; color: white; height: 100%; padding-right: 5px; line-height: 25px; font-size: 1.2em; font-weight: bold;">Save
 							game to list</button></div>
 					<?php }?>
