@@ -34,7 +34,7 @@
 					|</a>
 			</div>
 			<div class="" style="float: right;">
-				<a target="_blank" href="<?php echo $this->getBaseUrl();?>flashgames/help"
+				<a onclick="help()" href="#"
 					class="linkOnTop">Help |</a>
 			</div>
 								
@@ -118,7 +118,7 @@
 					</div>
 					<?php }?>
 					<div class="col-xs-6 col-sm-6 col-md-6"
-						style="height: 10%; padding: 0;">
+						style="height: 10%;<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()){echo "float:right;";};?> padding: 0;">
 						<button onclick="skip();"
 							style="width: 100%; height: 100%; background: rgba(255, 100, 100, 0.8); border: 1px #999 solid; color: white; height: 100%; padding-left: 5px; line-height: 25px; font-size: 1.2em; font-weight: bold;">Next
 							random game</button>
