@@ -7,7 +7,7 @@
 <style>
 .page-empty {
 	background-image:
-		url("http://www.hdwallpapers.in/walls/fantasy_space-wide.jpg");
+		url("http://bnrfilms.in/wp-content/uploads/2014/08/website-background-small3.jpg");
 	background-size: 100% 100%;
 	margin: 0;
 }
@@ -15,37 +15,39 @@
 </head>
 <body>
 	<script src="http://www.quantumstreams.net/css/jquery-2.1.1.js"></script>
-
+<script src="http://www.quantumstreams.net/quantum.js"></script>
 	<div style="padding: 0; margin: 0; width: 100%;" class="container">
 		<div class="col-xs-12 col-sm-12 col-md-12"
 			style="background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.8); border: 1px #999 solid; color: white;">
-<div class="" style="float: left;">
+
+			<div class="" style="float: left;">
 				<a href="<?php echo $this->getBaseUrl();?>"><img
 					src="http://www.quantumstreams.net/logo_q.png"
 					style="height: 60px; padding: 10px;" /></a>
 			</div>
+
 			<?php if(Mage::getSingleton('customer/session')->isLoggedIn()){?>
 			<div class="" style="float: right;">
-			
+
 				<a class="linkOnTop"
 					href="<?php echo $this->getBaseUrl();?>customer/account/logout">Logout
 					|</a>
 			</div>
 			<div class="" style="float: right;">
-				<a href="<?php echo $this->getBaseUrl();?>flashgames/myprofile"
+				<a target="_blank" href="<?php echo $this->getBaseUrl();?>flashgames/myprofile"
 					class="linkOnTop">My Profile |</a>
 			</div>
+								
 			
-						<div class="" style="float: right;">
-				<a class="linkOnTop"
-					href="<?php echo $this->getBaseUrl();?>flashgames/mystreams">My
-					Streams |</a>
-			</div>
 			<?php }else{?>
 <div id="fb-root"></div>
 <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()):?>
 
-	<a href="#" onclick="return fblogin();" class="fb_button_ps"><img style="margin:10px;float:right;" height="40px" src="http://www.mygrocerybag.in/media/facebook-con.png" alt="<?php echo $this->__('Connect with Facebook')?>"/></a>
+	<a href="#" onclick="return fblogin();" class="fb_button_ps"><img
+				style="margin: 10px; float: right;" height="40px"
+				src="http://www.mygrocerybag.in/media/facebook-con.png"
+				alt="<?php echo $this->__('Connect with Facebook')?>" /></a>
+				<h5 style="line-height:40px;font-weight:bold;color:#4d7fc7;margin: 10px; float: right;">To be able to save a game link -></h5>
 <?php endif?>
 
 <?php }?>
@@ -53,17 +55,32 @@
 		<div style="padding: 0" class="col-xs-12 col-sm-12 col-md-12">
 
 			<div
-				style="padding: 0; background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.2);opacity:0; border: 1px #999 solid;"
+				style="padding: 0;overflow:hidden; background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.2); opacity: 0; border: 1px #999 solid;"
 				class="col-xs-2 col-sm-2 col-md-2" id="ovoJe2">
-				<!--  script async
+				
+				
+		<?php if(Mage::getSingleton('customer/session')->isLoggedIn()){?>		
+<div id="streamList"
+					style="margin-bottom: 4px; color: black; max-width: 100%; width: 100%; overflow-x: hidden; overflow-y: scroll; background: rgba(255, 255, 255, 0.6); border: 1px solid white; z-index: 999;">
+
+				</div>
+<?php }else{?>
+<script async
 					src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Quantum 1 
+				<!-- Quantum 1 -->
 				<ins class="adsbygoogle"
 					style="display: inline-block; width: 300px; height: 600px"
 					data-ad-client="ca-pub-2132701630366122" data-ad-slot="5762717689"></ins>
 				<script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script -->
+</script>
+<?php }?>
+<div class="col-sm-12 col-md-12 col-xs-12" style="height: 60px;" id="inputBox">
+<p style="font-weight:bold;color:white;margin: 2px;">Enter stream name:</p>
+					<input id="inputName" class="col-md-9 col-xs-9 col-sm-9">
+					<button class="col-xs-3 col-md-3 col-sm-3" id="inputOk"
+						onclick="restream()">Save</button>
+				</div>
 			</div>
 
 
@@ -73,115 +90,65 @@
 
 				<div style="padding: 0;" class="col-xs-12 col-sm-12 col-md-12">
 					<object
-						style="position: relative;display:none; min-height: 100%; max-width: 100%;"
-						id="content-game"
-						data=""
-						height="100%" width="100%">
+						style="position: relative; display: none; min-height: 100%; max-width: 100%;"
+						id="content-game" data="" height="100%" width="100%">
 						<param name="scale" value="exactfit">
 					</object>
 					<div id="overlayOn"
-						style="display: none; width: 100%;  min-height: 100%; max-width: 100%;height: 100%; background: url('http://www.quantumstreams.net/atom_animated.gif') no-repeat scroll center center rgba(0, 0, 0, 0.7); z-index: 9999;"></div>
+						style="display: none; width: 100%; min-height: 100%; max-width: 100%; height: 100%; background: url('http://www.quantumstreams.net/atom_animated.gif') no-repeat scroll center center rgba(0, 0, 0, 0.7); z-index: 9999;"></div>
 					<div id="firstScreen"
-						style="display: block;padding: 25px; width: 100%; text-align: center;  height: 100%; background: no-repeat scroll center center rgba(0, 0, 0, 0.7); z-index: 9999;">
-						<h1 style="padding:10px;">Welcome to QuantumStreams.net</h1>
+						style="display: block; padding: 25px; width: 100%; text-align: center; height: 100%; background: no-repeat scroll center center rgba(0, 0, 0, 0.7); z-index: 9999;">
+						<h1 style="padding: 10px;">Welcome to QuantumStreams.net</h1>
 						<h2>where things are never the same twice.</h2>
 						<h3>Randomize Your World</h3>
-						<h1 style="color:blue;"><a onclick="first();" style="cursor:pointer">Click to play :)</a></h1>
-						
-						<p style="color:red;">THIS IS BETA VERSION - PROFILES ARE NOT IMPLEMENTED YET (just click and play)</p>
-						
-<h6>
-Have fun and enjoy new and entertaining stream links.
-</h6>
-<h7 style="float:right;">
-Best regards, QuantumStreams.Net
-</h7>
-</div>
+						<h1 style="color: blue;">
+							<a onclick="first();" style="cursor: pointer">Click to play :)</a>
+						</h1>
+
+						<p style="color: red;">THIS IS BETA VERSION - PROFILES ARE NOT
+							IMPLEMENTED YET (just click and play)</p>
+
+						<h6>Have fun and enjoy new and entertaining stream links.</h6>
+						<h7 style="float:right;"> Best regards, QuantumStreams.Net </h7>
+					</div>
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-12" style="padding: 5px;position:fixed;bottom:0;right:0;">
+				<div class="col-xs-12 col-sm-12 col-md-12"
+					style="padding: 5px; position: fixed; bottom: 0; right: 0;">
 					<div class="col-xs-6 col-sm-6 col-md-6"
 						style="height: 100%; padding: 0;">
-						<button onclick="restream();"
-							style="width: 100%; height: 100%; background: rgba(0, 170, 255, 0.6); border: 1px #999 solid; color: white; height: 100%; padding-right: 5px; line-height: 25px; font-size: 1.2em; font-weight: bold;">Save to qStreams list</button>
+						<button onclick="restreamStart();"
+							style="width: 100%; height: 100%; background: rgba(0, 170, 255, 0.8); border: 1px #999 solid; color: white; height: 100%; padding-right: 5px; line-height: 25px; font-size: 1.2em; font-weight: bold;">Save
+							game to list</button>
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6"
 						style="height: 10%; padding: 0;">
 						<button onclick="skip();"
-							style="width: 100%; height: 100%; background: rgba(255, 100, 100, 0.6); border: 1px #999 solid; color: white; height: 100%; padding-left: 5px; line-height: 25px; font-size: 1.2em; font-weight: bold;">Next random qStream game</button>
+							style="width: 100%; height: 100%; background: rgba(255, 100, 100, 0.8); border: 1px #999 solid; color: white; height: 100%; padding-left: 5px; line-height: 25px; font-size: 1.2em; font-weight: bold;">Next
+							random game</button>
 					</div>
 				</div>
 			</div>
 
 
 			<div
-				style="padding: 0; background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.2);opacity:0;border: 1px #999 solid;"
+				style="overflow: hidden; padding: 0; margin-bottom: 4px; background: none repeat scroll 0px 0px rgba(0, 0, 0, 0.2); opacity: 0; border: 1px #999 solid;"
 				class="col-xs-2 col-sm-2 col-md-2" id="ovoJe">
 
-				<!--  script async
+				<script async
 					src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-				<!-- Quantum 2 
+				<!-- Quantum 2 -->
 				<ins class="adsbygoogle"
 					style="display: inline-block; width: 300px; height: 600px"
 					data-ad-client="ca-pub-2132701630366122" data-ad-slot="7239450882"></ins>
 				<script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script -->
+</script>
 			</div>
 
 		</div>
 	</div>
 
 	<script>
-function restream(){
-	window.open("https://www.facebook.com/sharer/sharer.php?u=http://www.quantumstreams.net/index.php/flashgames&t=Join the club and expirience funny and random");
-}
-
-function firstC(){
-	$('#firstScreen').attr("height",(($(window).height()*0.8)+15)+"px");
-	$('#firstScreen').attr("width",(($(window).width()*0.7)-30)+"px");
-}
-
-function resize(){
-	$('#content-game').attr("height",(($(window).height()*0.8)+15)+"px");
-	$('#content-game').attr("width",(($(window).width()*0.7)-30)+"px");
-	$('#overlayOn').attr("height",(($(window).height()*0.8)+15)+"px");
-	$('#overlayOn').attr("width",(($(window).width()*0.7)-30)+"px");
-
-	
-}
-
-function skip(){
-	
-	$('#content-game').hide();
-	$('#firstScreen').hide();
-	$('#ovoJe').css("opacity","1");
-	$('#ovoJe2').css("opacity","1");
-	$('#overlayOn').show();
-	$('#overlayOn').css("height",(($(window).height()*0.8)+15)+"px");
-	$('#overlayOn').css("width",(($(window).width()*0.7)-30)+"px");
-	$('#content-game').attr("data","");
-	$.get('<?php echo $this->getBaseUrl();?>/flashgames/random/index', function (data, status) {
-	$('#content-game').attr("data",data);
-	$('#content-game').show();
-	$('#overlayOn').hide();
-	
-	});
-	resize();
-	
-}
-
-function first(){
-	$('#firstScreen').hide();
-	skip();
-}
-
-$( document ).ready(function() {
-	firstC();
-});
-
-$( window ).resize(function() {
-	resize();
-});
 
 
 </script>
