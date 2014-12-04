@@ -52,8 +52,8 @@ function resize() {
 	$("#overlayOn").attr("height", $(window).height() * .8 + 10 + "px");
 	$("#overlayOn").attr("width", $(window).width() * .7 - 30 + "px");
 	$("#streamList").css("height", $(window).height() * .8 + 15 + "px");
-	$("#ovoJe").css("height", $(window).height() * .8 + 10 + "px");
-	$("#ovoJe2").css("height", $(window).height() * .8 + 10 + "px")
+	$("#ovoJe").css("height", $(window).height() * .9 + 10 + "px");
+	$("#ovoJe2").css("height", $(window).height() * .9 + 10 + "px")
 }
 function skip() {
 	$("#content-game").hide();
