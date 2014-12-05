@@ -61,7 +61,7 @@ class Simpletask_Flashgames_IndexController extends Mage_Core_Controller_Front_A
 	public function deleteprolorelativeAction(){
 		$itemCollection = Mage::getModel('flashgames/flashgames')->getCollection();
 		foreach($itemCollection as $item) {
-			if (strpos($item->getSwfUrl(), 'preloader') === true){
+			if (strpos($item->getSwfUrl(), 'preloader') !== false){
 				echo $item->getId();
 				$item->delete();
 			}
