@@ -17,15 +17,6 @@ class Simpletask_Flashgames_IndexController extends Mage_Core_Controller_Front_A
 		$this->renderLayout();
 	}
 	
-	public function cistiAction(){
-		$itemCollection = Mage::getModel('flashgames/flashgames')->getCollection();
-		foreach($itemCollection as $item) {
-			if ($item->getId()>22836&&$item->getId()<23557){
-				echo $item->getId();
-				$item->delete();
-			}
-		}
-	}
 	
 	public function countflaAction(){
 		ini_set('max_execution_time', 600);
@@ -64,6 +55,16 @@ class Simpletask_Flashgames_IndexController extends Mage_Core_Controller_Front_A
 			echo $item->getId();
 				$item->delete();
 		}
+		}
+	}
+	
+	public function deleteprolorelativeAction(){
+		$itemCollection = Mage::getModel('flashgames/flashgames')->getCollection();
+		foreach($itemCollection as $item) {
+			if (strpos($item->getSwfUrl(), 'http:') === false){
+				echo $item->getId();
+				$item->delete();
+			}
 		}
 	}
 	
