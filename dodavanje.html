@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<script src="http://www.quantumstreams.net/css/jquery-2.1.1.js"></script>
+	
+	<script type="text/javascript">
+	function addVideo(){
+	var regex = /https\:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})/;
+	var url = $('#videoLink').val();
+	var video_id = url.match(regex)[1];
+	$.getJSON('http://gdata.youtube.com/feeds/api/videos/'+video_id+'?v=2&alt=jsonc',function(data,status,xhr){
+	    alert(data.data.title);
+	    // data contains the JSON-Object below
+	});
+	}
+	</script>
+	
+	<input id="videoLink" placeholder="Youtube Link Ovde"/>
+	<button onclick="addVideo()">Dodaj</button>
+	
+</body>
+</html>
