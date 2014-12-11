@@ -14,9 +14,9 @@
 	var video_id = url.match(regex)[1];
 	var catId = $( "#videoCategory" ).val();
 	$.getJSON('http://gdata.youtube.com/feeds/api/videos/'+video_id+'?v=2&alt=jsonc',function(data,status,xhr){
-	    alert(data.data.title);
+	   
 	    // data contains the JSON-Object below
-	    alert('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.thumbnail.sqDefault);
+	    alert('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.thumbnail.sqDefault+'');
 	    /*$.get('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.thumbnail.sqDefault, function (data, status) {
 	         
 	          });*/
