@@ -16,16 +16,16 @@
 	$.getJSON('http://gdata.youtube.com/feeds/api/videos/'+video_id+'?v=2&alt=jsonc',function(data,status,xhr){
 	   
 	    // data contains the JSON-Object below
-	    alert('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.data.thumbnail.hqDefault+'');
-	    /*$.get('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.thumbnail.sqDefault, function (data, status) {
-	         
-	          });*/
+
+	    $.get('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.data.thumbnail.sqDefault, function (data, status) {
+	         alert('Dodato!');
+	          });
 	});
 	}
 	</script>
 	
 	<input id="videoLink" style="width:400px;" placeholder="Youtube Link Ovde"/><button onclick="addVideo()">Dodaj</button>
-	<p>Selektuj kategoriju videa ispod:</p>
+	<h3>Selektuj kategoriju videa ispod:</h3>
 	<select id="videoCategory">
 		<option value="1">animals</option>
 		<option value="2">humanity</option>
