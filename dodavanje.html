@@ -12,14 +12,32 @@
 	var regex = /https\:\/\/www\.youtube\.com\/watch\?v=([\w-]{11})/;
 	var url = $('#videoLink').val();
 	var video_id = url.match(regex)[1];
+	var catId = $( "#videoCategory" ).val();
 	$.getJSON('http://gdata.youtube.com/feeds/api/videos/'+video_id+'?v=2&alt=jsonc',function(data,status,xhr){
 	    alert(data.data.title);
 	    // data contains the JSON-Object below
+	    alert('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.thumbnail.sqDefault);
+	    /*$.get('http://www.theworldis.net/index.php/video/add/video/?title='+data.data.title+'&dur='+data.data.duration+'&cat='+catId+'&link=http://www.youtube.com/embed/'+video_id+'&thumb='+data.thumbnail.sqDefault, function (data, status) {
+	         
+	          });*/
 	});
 	}
 	</script>
 	
 	<input id="videoLink" placeholder="Youtube Link Ovde"/>
+	<p>Selektuj kategoriju videa</p>
+	<select id="videoCategory">
+		<option value="1">animals</option>
+		<option value="2">humanity</option>
+		<option value="3">awesome</option>
+		<option value="4">lol</option>
+		<option value="5">wow</option>
+		<option value="6">heartstone</option>
+		<option value="7">win/fail</option>
+		<option value="8">prank</option>
+		<option value="9">fights</option>
+		<option value="10">karma</option>
+	</select>
 	<button onclick="addVideo()">Dodaj</button>
 	
 </body>
